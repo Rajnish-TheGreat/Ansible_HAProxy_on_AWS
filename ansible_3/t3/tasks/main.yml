@@ -1,0 +1,38 @@
+---
+# tasks file for t3
+#
+- name: Provisioning EC2 Webservers
+  ec2:         
+          key_name: "mykey123"
+          instance_type: t2.micro
+          image: "ami-0ebc1ac48dfd14136"
+          count: 3
+          instance_tags:
+            Name: webserver
+          vpc_subnet_id: "subnet-c5e8d2ad"
+          assign_public_ip: yes
+          region: ap-south-1
+          state: absent
+          group_id: "sg-e88df28a"
+          region: ap-south-1
+          aws_access_key: "{{access_key}}"
+          aws_secret_key: "{{secret_key}}"
+
+
+- name: Provisioning EC2 Webservers
+  ec2:
+          key_name: "mykey123"
+          instance_type: t2.micro
+          image: "ami-0ebc1ac48dfd14136"
+          count: 1
+          instance_tags:
+            Name: lb
+          vpc_subnet_id: "subnet-c5e8d2ad"
+          assign_public_ip: yes
+          region: ap-south-1
+          state: absent
+          group_id: "sg-e88df28a"
+          region: ap-south-1
+          aws_access_key: "{{access_key}}"
+          aws_secret_key: "{{secret_key}}"
+

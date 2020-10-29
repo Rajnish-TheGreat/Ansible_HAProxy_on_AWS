@@ -1,0 +1,15 @@
+- hosts: localhost
+  roles:
+          - t3
+
+
+- hosts: tag_Name_lb
+  roles:
+    - role: haproxy_lb
+
+
+- hosts: tag_Name_webserver
+  roles:
+    - role: webserver
+
+
